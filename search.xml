@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Ubuntu16.04安装hexo]]></title>
+    <url>%2F2018%2F03%2F11%2FUbuntu-Hexo%2F</url>
+    <content type="text"><![CDATA[在Ubuntu16.04中安装hexo出现一系列的问题，总结一下安装hexo的步骤; 首先安装noejs，Ubuntu源中的nodejs时旧版本，所以需要在安装后更新nodejs; 123sudo apt-get install nodejssudo apt install nodejs-legacysudo apt install npm 更换成淘宝的镜像，否则非常慢1sudo npm config set registry https://registry.npm.taobao.org 可以通过 sudo npm config list 查看是否生效 安装更新版本的工具N1sudo npm install n -g 更新版本1sudo n stable 可以看到有 install：版本号，说明更新成功 安装hexo1sudo npm install -g hexo]]></content>
+      <tags>
+        <tag>配置</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F01%2F13%2Fhello-world%2F</url>
+    <url>%2F2018%2F03%2F08%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>
