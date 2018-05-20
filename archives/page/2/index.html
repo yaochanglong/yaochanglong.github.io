@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="go," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -93,20 +93,13 @@
 
 
 
-<meta name="description" content="Ubuntu下直接安装go1.10.1版本的go语言编译器需要依赖go1.4版本。所以在安装1.4版本以上的时候，需要安装1.4版本。">
-<meta name="keywords" content="go">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu16.04下源码安装go1.10.1编译器">
-<meta property="og:url" content="http://yoursite.com/2018/04/12/go/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yao">
+<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
 <meta property="og:site_name" content="Yao">
-<meta property="og:description" content="Ubuntu下直接安装go1.10.1版本的go语言编译器需要依赖go1.4版本。所以在安装1.4版本以上的时候，需要安装1.4版本。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://opqhufs9i.bkt.clouddn.com/success.png">
-<meta property="og:updated_time" content="2018-04-12T12:17:56.323Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu16.04下源码安装go1.10.1编译器">
-<meta name="twitter:description" content="Ubuntu下直接安装go1.10.1版本的go语言编译器需要依赖go1.4版本。所以在安装1.4版本以上的时候，需要安装1.4版本。">
-<meta name="twitter:image" content="http://opqhufs9i.bkt.clouddn.com/success.png">
+<meta name="twitter:title" content="Yao">
 
 
 
@@ -134,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/12/go/"/>
+  <link rel="canonical" href="http://yoursite.com/archives/page/2/"/>
 
 
 
 
 
-  <title>Ubuntu16.04下源码安装go1.10.1编译器 | Yao</title>
+  <title>归档 | Yao</title>
   
 
 
@@ -165,7 +158,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  page-archive  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -293,173 +286,70 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  <section id="posts" class="posts-collapse">
+    <span class="archive-move-on"></span>
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/12/go/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr_Yao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yao">
+    <span class="archive-page-counter">
+      
+      
+      
+        
+      
+      嗯..! 目前共计 11 篇日志。 继续努力。
     </span>
 
     
-      <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">Ubuntu16.04下源码安装go1.10.1编译器</h1>
-        
+      
+      
+      
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+      
+        
+        <div class="collection-title">
+          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+        </div>
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2017/03/14/hello-world/" itemprop="url">
               
-                <span class="post-meta-item-text">发表于</span>
+                <span itemprop="name">Hello World</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T18:57:09+08:00">
-                2018-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>Ubuntu下直接安装go1.10.1版本的go语言编译器需要依赖go1.4版本。所以在安装1.4版本以上的时候，需要安装1.4版本。<br><a id="more"></a></p>
-<h3 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br></pre></td></tr></table></figure>
-<p>在结尾处添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export GOROOT=$HOME/go</span><br><span class="line">export PATH=$PATH:$GOROOT/bin</span><br><span class="line">export GOPATH=$HOME/Applications/Go</span><br></pre></td></tr></table></figure></p>
-<p>使配置文件生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure></p>
-<h3 id="安装C-工具"><a href="#安装C-工具" class="headerlink" title="安装C 工具"></a>安装C 工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install bison ed gawk gcc libc6-dev make</span><br></pre></td></tr></table></figure>
-<h3 id="安装1-4"><a href="#安装1-4" class="headerlink" title="安装1.4"></a>安装1.4</h3><p>下载地址 <a href="https://golang.org/dl/" target="_blank" rel="noopener">https://golang.org/dl/</a>(需要翻墙)<br>如果需要安装1.4以上的版本，需要把1.4版本一起下载。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf go1.4.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>将文件移到<code>/home/xxx</code>,xxx为计算机名，并将文件名改为<code>go1.4</code>。如果已经在该目录下，则只把文件名改为<code>go1.4</code>即可。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv go  /home/xxx/go1.4</span><br></pre></td></tr></table></figure></p>
-<p>安装1.4编译器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> go1.4/src/</span><br><span class="line">sudo CGO_ENABLED=0 ./make.bash</span><br></pre></td></tr></table></figure></p>
-<h3 id="安装1-10-1"><a href="#安装1-10-1" class="headerlink" title="安装1.10.1"></a>安装1.10.1</h3><p>解压1.10.1版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf go1.10.linux-amd64.tar.gz</span><br><span class="line">mv go /home/xxx <span class="comment"># xxx为计算机名</span></span><br></pre></td></tr></table></figure></p>
-<p>安装1.10.1</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/xxx/go/src</span><br><span class="line">./all.bash</span><br></pre></td></tr></table></figure>
-<p>安装成功如下图所示<br><img src="http://opqhufs9i.bkt.clouddn.com/success.png" alt="success"></p>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>在完成安装后可输入<code>go env</code>，如果显示类似以下内容，则表示成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">GOARCH=&quot;amd64&quot;</span><br><span class="line">GOBIN=&quot;&quot;</span><br><span class="line">GOCACHE=&quot;/home/yao/.cache/go-build&quot;</span><br><span class="line">GOEXE=&quot;&quot;</span><br><span class="line">GOHOSTARCH=&quot;amd64&quot;</span><br><span class="line">GOHOSTOS=&quot;linux&quot;</span><br><span class="line">GOOS=&quot;linux&quot;</span><br><span class="line">GOPATH=&quot;/home/yao/Applications/Go&quot;</span><br><span class="line">GORACE=&quot;&quot;</span><br><span class="line">GOROOT=&quot;/home/yao/go&quot;</span><br><span class="line">GOTMPDIR=&quot;&quot;</span><br><span class="line">GOTOOLDIR=&quot;/home/yao/go/pkg/tool/linux_amd64&quot;</span><br><span class="line">GCCGO=&quot;gccgo&quot;</span><br><span class="line">CC=&quot;gcc&quot;</span><br><span class="line">CXX=&quot;g++&quot;</span><br><span class="line">CGO_ENABLED=&quot;1&quot;</span><br><span class="line">CGO_CFLAGS=&quot;-g -O2&quot;</span><br><span class="line">CGO_CPPFLAGS=&quot;&quot;</span><br><span class="line">CGO_CXXFLAGS=&quot;-g -O2&quot;</span><br><span class="line">CGO_FFLAGS=&quot;-g -O2&quot;</span><br><span class="line">CGO_LDFLAGS=&quot;-g -O2&quot;</span><br><span class="line">PKG_CONFIG=&quot;pkg-config&quot;</span><br><span class="line">GOGCCFLAGS=&quot;-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build612857100=/tmp/go-build -gno-record-gcc-switches&quot;</span><br></pre></td></tr></table></figure></p>
-<p>如果没有，也可能是环境变量没有生效，重启一下电脑试试</p>
-<p>代码测试<br>新建一个<code>hello.go</code>文件，输入以下内容<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="built_in">println</span>(<span class="string">"Hello"</span>, <span class="string">"world"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go run hello.go</span><br></pre></td></tr></table></figure></p>
-<p>会输出<code>Hello world</code></p>
-
-      
-    </div>
-
-    <div>
-      
+            </a>
         
+      </h2>
 
-      
-    </div>
-    <div>
-      
-        <div>
-    
-        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
-    
-</div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-03-14T23:32:51+08:00"
+              content="2017-03-14" >
+          03-14
+        </time>
+      </div>
 
-      
-    </div>
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/go/" rel="tag"># go</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/03/25/SpringBootModule/" rel="next" title="搭建SpringBoot多模块项目">
-                <i class="fa fa-chevron-left"></i> 搭建SpringBoot多模块项目
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+    
+
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+  </nav>
+
+
 
 
           </div>
@@ -467,10 +357,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -491,17 +377,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -554,22 +431,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置环境变量"><span class="nav-number">1.</span> <span class="nav-text">设置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装C-工具"><span class="nav-number">2.</span> <span class="nav-text">安装C 工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装1-4"><span class="nav-number">3.</span> <span class="nav-text">安装1.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装1-10-1"><span class="nav-number">4.</span> <span class="nav-text">安装1.10.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">5.</span> <span class="nav-text">测试</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -690,9 +551,11 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
 
 
   

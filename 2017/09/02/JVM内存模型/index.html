@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="go," />
+  <meta name="keywords" content="java," />
 
 
 
@@ -93,20 +93,18 @@
 
 
 
-<meta name="description" content="Ubuntu下直接安装go1.10.1版本的go语言编译器需要依赖go1.4版本。所以在安装1.4版本以上的时候，需要安装1.4版本。">
-<meta name="keywords" content="go">
+<meta name="description" content="JVM内存模型Java虚拟机(Java Virtual Machine=JVM)的内存空间分为五个部分，分别是：  程序计数器 Java虚拟机栈 本地方法栈 堆 方法区。  下面对这五个区域展开深入的介绍。 1. 程序计数器1.1. 什么是程序计数器？程序计数器是一块较小的内存空间，可以把它看作当前线程正在执行的字节码的行号指示器。也就是说，程序计数器里面记录的是当前线程正在执行的那一条字节码指令">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu16.04下源码安装go1.10.1编译器">
-<meta property="og:url" content="http://yoursite.com/2018/04/12/go/index.html">
+<meta property="og:title" content="JVM内存模型">
+<meta property="og:url" content="http://yoursite.com/2017/09/02/JVM内存模型/index.html">
 <meta property="og:site_name" content="Yao">
-<meta property="og:description" content="Ubuntu下直接安装go1.10.1版本的go语言编译器需要依赖go1.4版本。所以在安装1.4版本以上的时候，需要安装1.4版本。">
+<meta property="og:description" content="JVM内存模型Java虚拟机(Java Virtual Machine=JVM)的内存空间分为五个部分，分别是：  程序计数器 Java虚拟机栈 本地方法栈 堆 方法区。  下面对这五个区域展开深入的介绍。 1. 程序计数器1.1. 什么是程序计数器？程序计数器是一块较小的内存空间，可以把它看作当前线程正在执行的字节码的行号指示器。也就是说，程序计数器里面记录的是当前线程正在执行的那一条字节码指令">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://opqhufs9i.bkt.clouddn.com/success.png">
-<meta property="og:updated_time" content="2018-04-12T12:17:56.323Z">
+<meta property="og:updated_time" content="2018-05-20T02:18:41.915Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu16.04下源码安装go1.10.1编译器">
-<meta name="twitter:description" content="Ubuntu下直接安装go1.10.1版本的go语言编译器需要依赖go1.4版本。所以在安装1.4版本以上的时候，需要安装1.4版本。">
-<meta name="twitter:image" content="http://opqhufs9i.bkt.clouddn.com/success.png">
+<meta name="twitter:title" content="JVM内存模型">
+<meta name="twitter:description" content="JVM内存模型Java虚拟机(Java Virtual Machine=JVM)的内存空间分为五个部分，分别是：  程序计数器 Java虚拟机栈 本地方法栈 堆 方法区。  下面对这五个区域展开深入的介绍。 1. 程序计数器1.1. 什么是程序计数器？程序计数器是一块较小的内存空间，可以把它看作当前线程正在执行的字节码的行号指示器。也就是说，程序计数器里面记录的是当前线程正在执行的那一条字节码指令">
 
 
 
@@ -134,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/12/go/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/02/JVM内存模型/"/>
 
 
 
 
 
-  <title>Ubuntu16.04下源码安装go1.10.1编译器 | Yao</title>
+  <title>JVM内存模型 | Yao</title>
   
 
 
@@ -303,7 +301,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/12/go/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/02/JVM内存模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr_Yao">
@@ -320,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Ubuntu16.04下源码安装go1.10.1编译器</h1>
+          <h1 class="post-title" itemprop="name headline">JVM内存模型</h1>
         
 
         <div class="post-meta">
@@ -332,8 +330,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T18:57:09+08:00">
-                2018-04-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-02T10:14:57+08:00">
+                2017-09-02
               </time>
             
 
@@ -367,23 +365,79 @@
       
 
       
-        <p>Ubuntu下直接安装go1.10.1版本的go语言编译器需要依赖go1.4版本。所以在安装1.4版本以上的时候，需要安装1.4版本。<br><a id="more"></a></p>
-<h3 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br></pre></td></tr></table></figure>
-<p>在结尾处添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export GOROOT=$HOME/go</span><br><span class="line">export PATH=$PATH:$GOROOT/bin</span><br><span class="line">export GOPATH=$HOME/Applications/Go</span><br></pre></td></tr></table></figure></p>
-<p>使配置文件生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure></p>
-<h3 id="安装C-工具"><a href="#安装C-工具" class="headerlink" title="安装C 工具"></a>安装C 工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install bison ed gawk gcc libc6-dev make</span><br></pre></td></tr></table></figure>
-<h3 id="安装1-4"><a href="#安装1-4" class="headerlink" title="安装1.4"></a>安装1.4</h3><p>下载地址 <a href="https://golang.org/dl/" target="_blank" rel="noopener">https://golang.org/dl/</a>(需要翻墙)<br>如果需要安装1.4以上的版本，需要把1.4版本一起下载。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf go1.4.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>将文件移到<code>/home/xxx</code>,xxx为计算机名，并将文件名改为<code>go1.4</code>。如果已经在该目录下，则只把文件名改为<code>go1.4</code>即可。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv go  /home/xxx/go1.4</span><br></pre></td></tr></table></figure></p>
-<p>安装1.4编译器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> go1.4/src/</span><br><span class="line">sudo CGO_ENABLED=0 ./make.bash</span><br></pre></td></tr></table></figure></p>
-<h3 id="安装1-10-1"><a href="#安装1-10-1" class="headerlink" title="安装1.10.1"></a>安装1.10.1</h3><p>解压1.10.1版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf go1.10.linux-amd64.tar.gz</span><br><span class="line">mv go /home/xxx <span class="comment"># xxx为计算机名</span></span><br></pre></td></tr></table></figure></p>
-<p>安装1.10.1</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/xxx/go/src</span><br><span class="line">./all.bash</span><br></pre></td></tr></table></figure>
-<p>安装成功如下图所示<br><img src="http://opqhufs9i.bkt.clouddn.com/success.png" alt="success"></p>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>在完成安装后可输入<code>go env</code>，如果显示类似以下内容，则表示成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">GOARCH=&quot;amd64&quot;</span><br><span class="line">GOBIN=&quot;&quot;</span><br><span class="line">GOCACHE=&quot;/home/yao/.cache/go-build&quot;</span><br><span class="line">GOEXE=&quot;&quot;</span><br><span class="line">GOHOSTARCH=&quot;amd64&quot;</span><br><span class="line">GOHOSTOS=&quot;linux&quot;</span><br><span class="line">GOOS=&quot;linux&quot;</span><br><span class="line">GOPATH=&quot;/home/yao/Applications/Go&quot;</span><br><span class="line">GORACE=&quot;&quot;</span><br><span class="line">GOROOT=&quot;/home/yao/go&quot;</span><br><span class="line">GOTMPDIR=&quot;&quot;</span><br><span class="line">GOTOOLDIR=&quot;/home/yao/go/pkg/tool/linux_amd64&quot;</span><br><span class="line">GCCGO=&quot;gccgo&quot;</span><br><span class="line">CC=&quot;gcc&quot;</span><br><span class="line">CXX=&quot;g++&quot;</span><br><span class="line">CGO_ENABLED=&quot;1&quot;</span><br><span class="line">CGO_CFLAGS=&quot;-g -O2&quot;</span><br><span class="line">CGO_CPPFLAGS=&quot;&quot;</span><br><span class="line">CGO_CXXFLAGS=&quot;-g -O2&quot;</span><br><span class="line">CGO_FFLAGS=&quot;-g -O2&quot;</span><br><span class="line">CGO_LDFLAGS=&quot;-g -O2&quot;</span><br><span class="line">PKG_CONFIG=&quot;pkg-config&quot;</span><br><span class="line">GOGCCFLAGS=&quot;-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build612857100=/tmp/go-build -gno-record-gcc-switches&quot;</span><br></pre></td></tr></table></figure></p>
-<p>如果没有，也可能是环境变量没有生效，重启一下电脑试试</p>
-<p>代码测试<br>新建一个<code>hello.go</code>文件，输入以下内容<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="built_in">println</span>(<span class="string">"Hello"</span>, <span class="string">"world"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go run hello.go</span><br></pre></td></tr></table></figure></p>
-<p>会输出<code>Hello world</code></p>
+        <h2 id="JVM内存模型"><a href="#JVM内存模型" class="headerlink" title="JVM内存模型"></a>JVM内存模型</h2><p>Java虚拟机(Java Virtual Machine=JVM)的内存空间分为五个部分，分别是：</p>
+<ol>
+<li>程序计数器</li>
+<li>Java虚拟机栈</li>
+<li>本地方法栈</li>
+<li>堆</li>
+<li>方法区。</li>
+</ol>
+<p>下面对这五个区域展开深入的介绍。</p>
+<h2 id="1-程序计数器"><a href="#1-程序计数器" class="headerlink" title="1. 程序计数器"></a>1. 程序计数器</h2><h3 id="1-1-什么是程序计数器？"><a href="#1-1-什么是程序计数器？" class="headerlink" title="1.1. 什么是程序计数器？"></a>1.1. 什么是程序计数器？</h3><p>程序计数器是一块较小的内存空间，可以把它看作当前线程正在执行的字节码的行号指示器。也就是说，程序计数器里面记录的是当前线程正在执行的那一条字节码指令的地址。<br>注：但是，如果当前线程正在执行的是一个本地方法，那么此时程序计数器为空。</p>
+<h3 id="1-2-程序计数器的作用"><a href="#1-2-程序计数器的作用" class="headerlink" title="1.2. 程序计数器的作用"></a>1.2. 程序计数器的作用</h3><p>程序计数器有两个作用：</p>
+<pre><code>字节码解释器通过改变程序计数器来依次读取指令，从而实现代码的流程控制，如：顺序执行、选择、循环、异常处理。
+在多线程的情况下，程序计数器用于记录当前线程执行的位置，从而当线程被切换回来的时候能够知道该线程上次运行到哪儿了。
+</code></pre><h3 id="1-3-程序计数器的特点"><a href="#1-3-程序计数器的特点" class="headerlink" title="1.3. 程序计数器的特点"></a>1.3. 程序计数器的特点</h3><pre><code>是一块较小的存储空间
+线程私有。每条线程都有一个程序计数器。
+是唯一一个不会出现OutOfMemoryError的内存区域。
+生命周期随着线程的创建而创建，随着线程的结束而死亡。
+</code></pre><h2 id="2-Java虚拟机栈-JVM-Stack"><a href="#2-Java虚拟机栈-JVM-Stack" class="headerlink" title="2. Java虚拟机栈(JVM Stack)"></a>2. Java虚拟机栈(JVM Stack)</h2><h3 id="2-1-什么是Java虚拟机栈？"><a href="#2-1-什么是Java虚拟机栈？" class="headerlink" title="2.1. 什么是Java虚拟机栈？"></a>2.1. 什么是Java虚拟机栈？</h3><p>Java虚拟机栈是描述Java方法运行过程的内存模型。<br>Java虚拟机栈会为每一个即将运行的Java方法创建一块叫做“栈帧”的区域，这块区域用于存储该方法在运行过程中所需要的一些信息，这些信息包括：</p>
+<pre><code>局部变量表
+存放基本数据类型变量、引用类型的变量、returnAddress类型的变量。
+操作数栈
+动态链接
+方法出口信息
+等
+</code></pre><p>当一个方法即将被运行时，Java虚拟机栈首先会在Java虚拟机栈中为该方法创建一块“栈帧”，栈帧中包含局部变量表、操作数栈、动态链接、方法出口信息等。当方法在运行过程中需要创建局部变量时，就将局部变量的值存入栈帧的局部变量表中。<br>当这个方法执行完毕后，这个方法所对应的栈帧将会出栈，并释放内存空间。</p>
+<p>注意：人们常说，Java的内存空间分为“栈”和“堆”，栈中存放局部变量，堆中存放对象。<br>这句话不完全正确！这里的“堆”可以这么理解，但这里的“栈”只代表了Java虚拟机栈中的局部变量表部分。真正的Java虚拟机栈是由一个个栈帧组成，而每个栈帧中都拥有：局部变量表、操作数栈、动态链接、方法出口信息。</p>
+<h3 id="2-2-Java虚拟机栈的特点"><a href="#2-2-Java虚拟机栈的特点" class="headerlink" title="2.2. Java虚拟机栈的特点"></a>2.2. Java虚拟机栈的特点</h3><pre><code>局部变量表的创建是在方法被执行的时候，随着栈帧的创建而创建。而且，局部变量表的大小在编译时期就确定下来了，在创建的时候只需分配事先规定好的大小即可。此外，在方法运行的过程中局部变量表的大小是不会发生改变的。
+Java虚拟机栈会出现两种异常：StackOverFlowError和OutOfMemoryError。
+a) StackOverFlowError：
+若Java虚拟机栈的内存大小不允许动态扩展，那么当线程请求栈的深度超过当前Java虚拟机栈的最大深度的时候，就抛出StackOverFlowError异常。
+b) OutOfMemoryError：
+若Java虚拟机栈的内存大小允许动态扩展，且当线程请求栈时内存用完了，无法再动态扩展了，此时抛出OutOfMemoryError异常。
+Java虚拟机栈也是线程私有的，每个线程都有各自的Java虚拟机栈，而且随着线程的创建而创建，随着线程的死亡而死亡。
+</code></pre><p>注：StackOverFlowError和OutOfMemoryError的异同？<br>StackOverFlowError表示当前线程申请的栈超过了事先定好的栈的最大深度，但内存空间可能还有很多。<br>而OutOfMemoryError是指当线程申请栈时发现栈已经满了，而且内存也全都用光了。</p>
+<h2 id="3-本地方法栈"><a href="#3-本地方法栈" class="headerlink" title="3. 本地方法栈"></a>3. 本地方法栈</h2><h3 id="3-1-什么是本地方法栈？"><a href="#3-1-什么是本地方法栈？" class="headerlink" title="3.1. 什么是本地方法栈？"></a>3.1. 什么是本地方法栈？</h3><p>本地方法栈和Java虚拟机栈实现的功能类似，只不过本地方法区是本地方法运行的内存模型。</p>
+<p>本地方法被执行的时候，在本地方法栈也会创建一个栈帧，用于存放该本地方法的局部变量表、操作数栈、动态链接、出口信息。</p>
+<p>方法执行完毕后相应的栈帧也会出栈并释放内存空间。</p>
+<p>也会抛出StackOverFlowError和OutOfMemoryError异常。</p>
+<h2 id="4-堆"><a href="#4-堆" class="headerlink" title="4. 堆"></a>4. 堆</h2><h3 id="4-1-什么是堆？"><a href="#4-1-什么是堆？" class="headerlink" title="4.1. 什么是堆？"></a>4.1. 什么是堆？</h3><p>堆是用来存放对象的内存空间。<br>几乎所有的对象都存储在堆中。</p>
+<h3 id="4-2-堆的特点"><a href="#4-2-堆的特点" class="headerlink" title="4.2. 堆的特点"></a>4.2. 堆的特点</h3><pre><code>线程共享
+整个Java虚拟机只有一个堆，所有的线程都访问同一个堆。而程序计数器、Java虚拟机栈、本地方法栈都是一个线程对应一个的。
+在虚拟机启动时创建
+垃圾回收的主要场所。
+可以进一步细分为：新生代、老年代。
+新生代又可被分为：Eden、From Survior、To Survior。
+不同的区域存放具有不同生命周期的对象。这样可以根据不同的区域使用不同的垃圾回收算法，从而更具有针对性，从而更高效。
+堆的大小既可以固定也可以扩展，但主流的虚拟机堆的大小是可扩展的，因此当线程请求分配内存，但堆已满，且内存已满无法再扩展时，就抛出OutOfMemoryError。
+</code></pre><h2 id="5-方法区"><a href="#5-方法区" class="headerlink" title="5. 方法区"></a>5. 方法区</h2><h3 id="5-1-什么是方法区？"><a href="#5-1-什么是方法区？" class="headerlink" title="5.1. 什么是方法区？"></a>5.1. 什么是方法区？</h3><p>Java虚拟机规范中定义方法区是堆的一个逻辑部分。<br>方法区中存放已经被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等。</p>
+<h3 id="5-2-方法区的特点"><a href="#5-2-方法区的特点" class="headerlink" title="5.2. 方法区的特点"></a>5.2. 方法区的特点</h3><pre><code>线程共享
+方法区是堆的一个逻辑部分，因此和堆一样，都是线程共享的。整个虚拟机中只有一个方法区。
+永久代
+方法区中的信息一般需要长期存在，而且它又是堆的逻辑分区，因此用堆的划分方法，我们把方法区称为老年代。
+内存回收效率低
+方法区中的信息一般需要长期存在，回收一遍内存之后可能只有少量信息无效。
+对方法区的内存回收的主要目标是：对常量池的回收 和 对类型的卸载。
+Java虚拟机规范对方法区的要求比较宽松。
+和堆一样，允许固定大小，也允许可扩展的大小，还允许不实现垃圾回收。
+</code></pre><h3 id="5-3-什么是运行时常量池？"><a href="#5-3-什么是运行时常量池？" class="headerlink" title="5.3. 什么是运行时常量池？"></a>5.3. 什么是运行时常量池？</h3><p>方法区中存放三种数据：类信息、常量、静态变量、即时编译器编译后的代码。其中常量存储在运行时常量池中。</p>
+<p>我们一般在一个类中通过public static final来声明一个常量。这个类被编译后便生成Class文件，这个类的所有信息都存储在这个class文件中。</p>
+<p>当这个类被Java虚拟机加载后，class文件中的常量就存放在方法区的运行时常量池中。而且在运行期间，可以向常量池中添加新的常量。如：String类的intern()方法就能在运行期间向常量池中添加字符串常量。</p>
+<p>当运行时常量池中的某些常量没有被对象引用，同时也没有被变量引用，那么就需要垃圾收集器回收。</p>
+<h2 id="6-直接内存"><a href="#6-直接内存" class="headerlink" title="6. 直接内存"></a>6. 直接内存</h2><p>直接内存是除Java虚拟机之外的内存，但也有可能被Java使用。</p>
+<p>在NIO中引入了一种基于通道和缓冲的IO方式。它可以通过调用本地方法直接分配Java虚拟机之外的内存，然后通过一个存储在Java堆中的DirectByteBuffer对象直接操作该内存，而无需先将外面内存中的数据复制到堆中再操作，从而提升了数据操作的效率。</p>
+<p>直接内存的大小不受Java虚拟机控制，但既然是内存，当内存不足时就会抛出OOM异常。</p>
+<p>综上所述</p>
+<pre><code>Java虚拟机的内存模型中一共有两个“栈”，分别是：Java虚拟机栈和本地方法栈。
+两个“栈”的功能类似，都是方法运行过程的内存模型。并且两个“栈”内部构造相同，都是线程私有。
+只不过Java虚拟机栈描述的是Java方法运行过程的内存模型，而本地方法栈是描述Java本地方法运行过程的内存模型。
+Java虚拟机的内存模型中一共有两个“堆”，一个是原本的堆，一个是方法区。方法区本质上是属于堆的一个逻辑部分。堆中存放对象，方法区中存放类信息、常量、静态变量、即时编译器编译的代码。
+堆是Java虚拟机中最大的一块内存区域，也是垃圾收集器主要的工作区域。
+程序计数器、Java虚拟机栈、本地方法栈是线程私有的，即每个线程都拥有各自的程序计数器、Java虚拟机栈、本地方法区。并且他们的生命周期和所属的线程一样。
+而堆、方法区是线程共享的，在Java虚拟机中只有一个堆、一个方法栈。并在JVM启动的时候就创建，JVM停止才销毁。
+</code></pre><p>转载自：<a href="https://blog.csdn.net/u010425776/article/details/51170118" target="_blank" rel="noopener">https://blog.csdn.net/u010425776/article/details/51170118</a></p>
 
       
     </div>
@@ -422,7 +476,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/go/" rel="tag"># go</a>
+            <a href="/tags/java/" rel="tag"># java</a>
           
         </div>
       
@@ -435,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/25/SpringBootModule/" rel="next" title="搭建SpringBoot多模块项目">
-                <i class="fa fa-chevron-left"></i> 搭建SpringBoot多模块项目
+              <a href="/2017/08/06/MybatisTage/" rel="next" title="Mybatis中动态SQL的用法">
+                <i class="fa fa-chevron-left"></i> Mybatis中动态SQL的用法
               </a>
             
           </div>
@@ -444,6 +498,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/11/Ubuntu-Hexo/" rel="prev" title="Ubuntu16.04安装hexo">
+                Ubuntu16.04安装hexo <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -564,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置环境变量"><span class="nav-number">1.</span> <span class="nav-text">设置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装C-工具"><span class="nav-number">2.</span> <span class="nav-text">安装C 工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装1-4"><span class="nav-number">3.</span> <span class="nav-text">安装1.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装1-10-1"><span class="nav-number">4.</span> <span class="nav-text">安装1.10.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">5.</span> <span class="nav-text">测试</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM内存模型"><span class="nav-number">1.</span> <span class="nav-text">JVM内存模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-程序计数器"><span class="nav-number">2.</span> <span class="nav-text">1. 程序计数器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-什么是程序计数器？"><span class="nav-number">2.1.</span> <span class="nav-text">1.1. 什么是程序计数器？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-程序计数器的作用"><span class="nav-number">2.2.</span> <span class="nav-text">1.2. 程序计数器的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-程序计数器的特点"><span class="nav-number">2.3.</span> <span class="nav-text">1.3. 程序计数器的特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Java虚拟机栈-JVM-Stack"><span class="nav-number">3.</span> <span class="nav-text">2. Java虚拟机栈(JVM Stack)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-什么是Java虚拟机栈？"><span class="nav-number">3.1.</span> <span class="nav-text">2.1. 什么是Java虚拟机栈？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Java虚拟机栈的特点"><span class="nav-number">3.2.</span> <span class="nav-text">2.2. Java虚拟机栈的特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-本地方法栈"><span class="nav-number">4.</span> <span class="nav-text">3. 本地方法栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-什么是本地方法栈？"><span class="nav-number">4.1.</span> <span class="nav-text">3.1. 什么是本地方法栈？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-堆"><span class="nav-number">5.</span> <span class="nav-text">4. 堆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-什么是堆？"><span class="nav-number">5.1.</span> <span class="nav-text">4.1. 什么是堆？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-堆的特点"><span class="nav-number">5.2.</span> <span class="nav-text">4.2. 堆的特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-方法区"><span class="nav-number">6.</span> <span class="nav-text">5. 方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-什么是方法区？"><span class="nav-number">6.1.</span> <span class="nav-text">5.1. 什么是方法区？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-方法区的特点"><span class="nav-number">6.2.</span> <span class="nav-text">5.2. 方法区的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-什么是运行时常量池？"><span class="nav-number">6.3.</span> <span class="nav-text">5.3. 什么是运行时常量池？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-直接内存"><span class="nav-number">7.</span> <span class="nav-text">6. 直接内存</span></a></li></ol></div>
             
 
           </div>
