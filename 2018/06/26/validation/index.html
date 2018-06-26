@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="go," />
+  <meta name="keywords" content="springboot," />
 
 
 
@@ -93,20 +93,18 @@
 
 
 
-<meta name="description" content="Ubuntu下直接安装go1.10.1版本的go语言编译器需要依赖go1.4版本。所以在安装1.4版本以上的时候，需要安装1.4版本。">
-<meta name="keywords" content="go">
+<meta name="description" content="JSR 303 – Bean Validation 是一个数据验证的规范，2009 年 11 月确定最终方案。Hibernate Validator 是 Bean Validation 的参考实现 . Hibernate Validator 提供了 JSR 303 规范中所有内置 constraint我们通常写接口时会对传来的参数进行校验判断，比如字符串非空判断，值在多少返回等,这些就要用到Spr">
+<meta name="keywords" content="springboot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu16.04下源码安装go1.10.1编译器">
-<meta property="og:url" content="http://yoursite.com/2018/04/12/go/index.html">
+<meta property="og:title" content="Java SpringBoot上的参数校验JSR 303 Validation">
+<meta property="og:url" content="http://yoursite.com/2018/06/26/validation/index.html">
 <meta property="og:site_name" content="Yao">
-<meta property="og:description" content="Ubuntu下直接安装go1.10.1版本的go语言编译器需要依赖go1.4版本。所以在安装1.4版本以上的时候，需要安装1.4版本。">
+<meta property="og:description" content="JSR 303 – Bean Validation 是一个数据验证的规范，2009 年 11 月确定最终方案。Hibernate Validator 是 Bean Validation 的参考实现 . Hibernate Validator 提供了 JSR 303 规范中所有内置 constraint我们通常写接口时会对传来的参数进行校验判断，比如字符串非空判断，值在多少返回等,这些就要用到Spr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://opqhufs9i.bkt.clouddn.com/success.png">
-<meta property="og:updated_time" content="2018-04-12T12:17:56.323Z">
+<meta property="og:updated_time" content="2018-06-26T13:18:45.413Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu16.04下源码安装go1.10.1编译器">
-<meta name="twitter:description" content="Ubuntu下直接安装go1.10.1版本的go语言编译器需要依赖go1.4版本。所以在安装1.4版本以上的时候，需要安装1.4版本。">
-<meta name="twitter:image" content="http://opqhufs9i.bkt.clouddn.com/success.png">
+<meta name="twitter:title" content="Java SpringBoot上的参数校验JSR 303 Validation">
+<meta name="twitter:description" content="JSR 303 – Bean Validation 是一个数据验证的规范，2009 年 11 月确定最终方案。Hibernate Validator 是 Bean Validation 的参考实现 . Hibernate Validator 提供了 JSR 303 规范中所有内置 constraint我们通常写接口时会对传来的参数进行校验判断，比如字符串非空判断，值在多少返回等,这些就要用到Spr">
 
 
 
@@ -134,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/12/go/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/26/validation/"/>
 
 
 
 
 
-  <title>Ubuntu16.04下源码安装go1.10.1编译器 | Yao</title>
+  <title>Java SpringBoot上的参数校验JSR 303 Validation | Yao</title>
   
 
 
@@ -303,7 +301,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/12/go/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/26/validation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr_Yao">
@@ -320,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Ubuntu16.04下源码安装go1.10.1编译器</h1>
+          <h1 class="post-title" itemprop="name headline">Java SpringBoot上的参数校验JSR 303 Validation</h1>
         
 
         <div class="post-meta">
@@ -332,8 +330,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T18:57:09+08:00">
-                2018-04-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-26T21:11:31+08:00">
+                2018-06-26
               </time>
             
 
@@ -367,23 +365,21 @@
       
 
       
-        <p>Ubuntu下直接安装go1.10.1版本的go语言编译器需要依赖go1.4版本。所以在安装1.4版本以上的时候，需要安装1.4版本。<br><a id="more"></a></p>
-<h3 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br></pre></td></tr></table></figure>
-<p>在结尾处添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export GOROOT=$HOME/go</span><br><span class="line">export PATH=$PATH:$GOROOT/bin</span><br><span class="line">export GOPATH=$HOME/Applications/Go</span><br></pre></td></tr></table></figure></p>
-<p>使配置文件生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure></p>
-<h3 id="安装C-工具"><a href="#安装C-工具" class="headerlink" title="安装C 工具"></a>安装C 工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install bison ed gawk gcc libc6-dev make</span><br></pre></td></tr></table></figure>
-<h3 id="安装1-4"><a href="#安装1-4" class="headerlink" title="安装1.4"></a>安装1.4</h3><p>下载地址 <a href="https://golang.org/dl/" target="_blank" rel="noopener">https://golang.org/dl/</a>(需要翻墙)<br>如果需要安装1.4以上的版本，需要把1.4版本一起下载。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf go1.4.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>将文件移到<code>/home/xxx</code>,xxx为计算机名，并将文件名改为<code>go1.4</code>。如果已经在该目录下，则只把文件名改为<code>go1.4</code>即可。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv go  /home/xxx/go1.4</span><br></pre></td></tr></table></figure></p>
-<p>安装1.4编译器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> go1.4/src/</span><br><span class="line">sudo CGO_ENABLED=0 ./make.bash</span><br></pre></td></tr></table></figure></p>
-<h3 id="安装1-10-1"><a href="#安装1-10-1" class="headerlink" title="安装1.10.1"></a>安装1.10.1</h3><p>解压1.10.1版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf go1.10.linux-amd64.tar.gz</span><br><span class="line">mv go /home/xxx <span class="comment"># xxx为计算机名</span></span><br></pre></td></tr></table></figure></p>
-<p>安装1.10.1</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/xxx/go/src</span><br><span class="line">./all.bash</span><br></pre></td></tr></table></figure>
-<p>安装成功如下图所示<br><img src="http://opqhufs9i.bkt.clouddn.com/success.png" alt="success"></p>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>在完成安装后可输入<code>go env</code>，如果显示类似以下内容，则表示成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">GOARCH=&quot;amd64&quot;</span><br><span class="line">GOBIN=&quot;&quot;</span><br><span class="line">GOCACHE=&quot;/home/yao/.cache/go-build&quot;</span><br><span class="line">GOEXE=&quot;&quot;</span><br><span class="line">GOHOSTARCH=&quot;amd64&quot;</span><br><span class="line">GOHOSTOS=&quot;linux&quot;</span><br><span class="line">GOOS=&quot;linux&quot;</span><br><span class="line">GOPATH=&quot;/home/yao/Applications/Go&quot;</span><br><span class="line">GORACE=&quot;&quot;</span><br><span class="line">GOROOT=&quot;/home/yao/go&quot;</span><br><span class="line">GOTMPDIR=&quot;&quot;</span><br><span class="line">GOTOOLDIR=&quot;/home/yao/go/pkg/tool/linux_amd64&quot;</span><br><span class="line">GCCGO=&quot;gccgo&quot;</span><br><span class="line">CC=&quot;gcc&quot;</span><br><span class="line">CXX=&quot;g++&quot;</span><br><span class="line">CGO_ENABLED=&quot;1&quot;</span><br><span class="line">CGO_CFLAGS=&quot;-g -O2&quot;</span><br><span class="line">CGO_CPPFLAGS=&quot;&quot;</span><br><span class="line">CGO_CXXFLAGS=&quot;-g -O2&quot;</span><br><span class="line">CGO_FFLAGS=&quot;-g -O2&quot;</span><br><span class="line">CGO_LDFLAGS=&quot;-g -O2&quot;</span><br><span class="line">PKG_CONFIG=&quot;pkg-config&quot;</span><br><span class="line">GOGCCFLAGS=&quot;-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build612857100=/tmp/go-build -gno-record-gcc-switches&quot;</span><br></pre></td></tr></table></figure></p>
-<p>如果没有，也可能是环境变量没有生效，重启一下电脑试试</p>
-<p>代码测试<br>新建一个<code>hello.go</code>文件，输入以下内容<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="built_in">println</span>(<span class="string">"Hello"</span>, <span class="string">"world"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go run hello.go</span><br></pre></td></tr></table></figure></p>
-<p>会输出<code>Hello world</code></p>
+        <p>JSR 303 – Bean Validation 是一个数据验证的规范，2009 年 11 月确定最终方案。<br>Hibernate Validator 是 Bean Validation 的参考实现 . Hibernate Validator 提供了 JSR 303 规范中所有内置 constraint<br>我们通常写接口时会对传来的参数进行校验判断，比如字符串非空判断，值在多少返回等,这些就要用到Spring 的参数校验，这里我们使用在spring-boot-starter-web包里面有hibernate-validator包，<br>参数校验有几种方式，如下</p>
+<ul>
+<li>使用@Valid+BindingResult</li>
+<li>注解使用@Valid +全局异常捕捉处理<a id="more"></a>
+<h3 id="使用-Valid-BindingResult-参数验证"><a href="#使用-Valid-BindingResult-参数验证" class="headerlink" title="使用@Valid+BindingResult 参数验证"></a>使用@Valid+BindingResult 参数验证</h3>1.符合国际JSP 303规范，先定义个Bean，别人在字段名上添加验证的注解，@NotBlank 字段名不能为null，同时长度大于0常有的校验类型有<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Constraint    详细信息</span><br><span class="line"></span><br><span class="line">@Null    被注释的元素必须为 null</span><br><span class="line">@NotNull    被注释的元素必须不为 null</span><br><span class="line">@AssertTrue    被注释的元素必须为 true</span><br><span class="line">@AssertFalse    被注释的元素必须为 false</span><br><span class="line">@Min(value)    被注释的元素必须是一个数字，其值必须大于等于指定的最小值</span><br><span class="line">@Max(value)    被注释的元素必须是一个数字，其值必须小于等于指定的最大值</span><br><span class="line">@DecimalMin(value)    被注释的元素必须是一个数字，其值必须大于等于指定的最小值</span><br><span class="line">@DecimalMax(value)    被注释的元素必须是一个数字，其值必须小于等于指定的最大值</span><br><span class="line">@Size(max, min)    被注释的元素的大小必须在指定的范围内</span><br><span class="line">@Digits (integer, fraction)    被注释的元素必须是一个数字，其值必须在可接受的范围内</span><br><span class="line">@Past    被注释的元素必须是一个过去的日期</span><br><span class="line">@Future    被注释的元素必须是一个将来的日期</span><br><span class="line">@Pattern(value)    被注释的元素必须符合指定的正则表达式</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//账号</span></span><br><span class="line">    <span class="meta">@NotBlank</span>(message = <span class="string">"账号不能为空"</span>)</span><br><span class="line">    <span class="keyword">private</span> String phone;</span><br><span class="line">    <span class="comment">//密码</span></span><br><span class="line">    <span class="meta">@NotBlank</span>(message = <span class="string">"密码不能为空"</span>)</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPhone</span><span class="params">(String phone)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.phone = phone;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.password = password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPhone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> phone;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> password;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.在Controller类里面对相应的接口添加@Valid+BindingResult验证，加完以后，如果参数验证不通过，那就直接进入if语句里面，在语句里面做相应的返回结果<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">implements</span> <span class="title">IUser</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/login"</span>, method = RequestMethod.POST)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">login</span><span class="params">( @Valid User userInfo, BindingResult bindingResult)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (bindingResult.hasErrors()) &#123;</span><br><span class="line">            System.out.print(bindingResult.getFieldError().getDefaultMessage());</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> userInfo;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>好了，第一种验证我们已经说完了，但你仔细想想，如果我有多个接口，是不是每次有要写@Valid+BindgResult bingingResult,然后再到If语句里面进行判断，如果仅仅是错误信息不一致，但返回的客户端结构是一致的，比如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;&quot;code&quot;:&quot;1002&quot;,&quot;message&quot;:&quot;parameters are missing&quot;,&quot;data&quot;:&quot;&#123;&#125;&quot;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>不同的验证只要改变message,那么是不是可以统一处理，来减少代码量，于是下面介绍第二种方式</p>
+<h3 id="使用-Valid-全局异常捕捉-参数校验"><a href="#使用-Valid-全局异常捕捉-参数校验" class="headerlink" title="使用@Valid+全局异常捕捉 参数校验"></a>使用@Valid+全局异常捕捉 参数校验</h3><p>简单点说，由第一种方式去掉BindingResult，然后再定义一个全局异常类，同样的<br>1.还是定义POJO<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//账号</span></span><br><span class="line">    <span class="meta">@NotBlank</span>(message = <span class="string">"账号不能为空"</span>)</span><br><span class="line">    <span class="keyword">private</span> String phone;</span><br><span class="line">    <span class="comment">//密码</span></span><br><span class="line">    <span class="meta">@NotBlank</span>(message = <span class="string">"密码不能为空"</span>)</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPhone</span><span class="params">(String phone)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.phone = phone;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.password = password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPhone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> phone;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> password;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.在Controller里面的方法定义要验证的@Valid<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">implements</span> <span class="title">IUser</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/login2"</span>, method = RequestMethod.POST)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">login2</span><span class="params">(@RequestBody @Valid User userInfo)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>3.定义全局异常类<br>所有验证失败的结果都会在GlobleExceptionHandler的defultExcepitonHandler方法里面捕捉到<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestControllerAdvice</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlobleExceptionHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(Exception.class)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">defultExcepitonHandler</span><span class="params">(Exception ex)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        ex.printStackTrace();</span><br><span class="line">        <span class="keyword">if</span>(ex <span class="keyword">instanceof</span>  BindException)&#123;</span><br><span class="line">            <span class="comment">//处理返回的错误信息</span></span><br><span class="line">            StringBuffer errorMsg = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">            BindException c = (BindException) ex;</span><br><span class="line">            List&lt;ObjectError&gt; errors = c.getBindingResult().getAllErrors();</span><br><span class="line">            <span class="keyword">for</span> (ObjectError error : errors) &#123;</span><br><span class="line">                errorMsg.append(error.getDefaultMessage()).append(<span class="string">";"</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> errorMsg.toString();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>作者：飞一样的猪<br>链接：<a href="https://juejin.im/post/5b2f4514f265da597a6108f8" target="_blank" rel="noopener">https://juejin.im/post/5b2f4514f265da597a6108f8</a><br>来源：掘金</p>
 
       
     </div>
@@ -422,7 +418,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/go/" rel="tag"># go</a>
+            <a href="/tags/springboot/" rel="tag"># springboot</a>
           
         </div>
       
@@ -435,8 +431,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/25/SpringBootModule/" rel="next" title="搭建SpringBoot多模块项目">
-                <i class="fa fa-chevron-left"></i> 搭建SpringBoot多模块项目
+              <a href="/2018/06/25/springboot-mail-freemarker/" rel="next" title="springboot使用freemarker发送模板邮件">
+                <i class="fa fa-chevron-left"></i> springboot使用freemarker发送模板邮件
               </a>
             
           </div>
@@ -444,10 +440,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/25/springboot-mail-freemarker/" rel="prev" title="springboot使用freemarker发送模板邮件">
-                springboot使用freemarker发送模板邮件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -568,7 +560,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置环境变量"><span class="nav-number">1.</span> <span class="nav-text">设置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装C-工具"><span class="nav-number">2.</span> <span class="nav-text">安装C 工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装1-4"><span class="nav-number">3.</span> <span class="nav-text">安装1.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装1-10-1"><span class="nav-number">4.</span> <span class="nav-text">安装1.10.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">5.</span> <span class="nav-text">测试</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Valid-BindingResult-参数验证"><span class="nav-number">1.</span> <span class="nav-text">使用@Valid+BindingResult 参数验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Valid-全局异常捕捉-参数校验"><span class="nav-number">2.</span> <span class="nav-text">使用@Valid+全局异常捕捉 参数校验</span></a></li></ol></div>
             
 
           </div>
