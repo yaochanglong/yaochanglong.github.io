@@ -65,6 +65,14 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[JAVA整形取值范围的计算]]></title>
+    <url>%2F2018%2F05%2F18%2FJAVA%E6%95%B4%E5%BD%A2%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%E7%9A%84%E8%AE%A1%E7%AE%97%2F</url>
+    <content type="text"><![CDATA[java中的整型有byte、short、int、long，它们的取值范围分别为：byte：$-2^{7}$~$+2^{7} -1$,占1个字节。short: $-2^{15}$~$+2^{15} -1$，占2个字节。int： $-2^{31}$~$+2^{31} -1$，占4个字节。long： $-2^{63}$~$+2^{63} -1$，占8个字节。这几个整数都是有符号整数，以byte为例，取值范围计算为：在计算机中，有符号整数在用二进制表示时，最高位符号为0代表是正数、1代表是负数，并且负数是以补码的形式存储的，就是将其原码除符号位外的所有位取反后加1。byte占1个字节、8位，所以byte最高为01111 1111值为$+2^{7} -1$。将0111 1111取补码后为1000 0000也就是byte最低范围$-2^{7}$的值。]]></content>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Ubuntu16.04下源码安装go1.10.1编译器]]></title>
     <url>%2F2018%2F04%2F12%2Fgo%2F</url>
     <content type="text"><![CDATA[Ubuntu下直接安装go1.10.1版本的go语言编译器需要依赖go1.4版本。所以在安装1.4版本以上的时候，需要安装1.4版本。 设置环境变量1sudo vim /etc/profile 在结尾处添加123export GOROOT=$HOME/goexport PATH=$PATH:$GOROOT/binexport GOPATH=$HOME/Applications/Go 使配置文件生效1source /etc/profile 安装C 工具1sudo apt-get install bison ed gawk gcc libc6-dev make 安装1.4下载地址 https://golang.org/dl/(需要翻墙)如果需要安装1.4以上的版本，需要把1.4版本一起下载。1tar -zxvf go1.4.linux-amd64.tar.gz 将文件移到/home/xxx,xxx为计算机名，并将文件名改为go1.4。如果已经在该目录下，则只把文件名改为go1.4即可。1mv go /home/xxx/go1.4 安装1.4编译器12cd go1.4/src/sudo CGO_ENABLED=0 ./make.bash 安装1.10.1解压1.10.1版本12tar -zxvf go1.10.linux-amd64.tar.gzmv go /home/xxx # xxx为计算机名 安装1.10.1 12cd /home/xxx/go/src./all.bash 安装成功如下图所示 测试在完成安装后可输入go env，如果显示类似以下内容，则表示成功1234567891011121314151617181920212223GOARCH=&quot;amd64&quot;GOBIN=&quot;&quot;GOCACHE=&quot;/home/yao/.cache/go-build&quot;GOEXE=&quot;&quot;GOHOSTARCH=&quot;amd64&quot;GOHOSTOS=&quot;linux&quot;GOOS=&quot;linux&quot;GOPATH=&quot;/home/yao/Applications/Go&quot;GORACE=&quot;&quot;GOROOT=&quot;/home/yao/go&quot;GOTMPDIR=&quot;&quot;GOTOOLDIR=&quot;/home/yao/go/pkg/tool/linux_amd64&quot;GCCGO=&quot;gccgo&quot;CC=&quot;gcc&quot;CXX=&quot;g++&quot;CGO_ENABLED=&quot;1&quot;CGO_CFLAGS=&quot;-g -O2&quot;CGO_CPPFLAGS=&quot;&quot;CGO_CXXFLAGS=&quot;-g -O2&quot;CGO_FFLAGS=&quot;-g -O2&quot;CGO_LDFLAGS=&quot;-g -O2&quot;PKG_CONFIG=&quot;pkg-config&quot;GOGCCFLAGS=&quot;-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build612857100=/tmp/go-build -gno-record-gcc-switches&quot; 如果没有，也可能是环境变量没有生效，重启一下电脑试试 代码测试新建一个hello.go文件，输入以下内容12345package mainfunc main() &#123; println("Hello", "world")&#125; 运行1go run hello.go 会输出Hello world]]></content>
